@@ -1,2 +1,32 @@
 ---
-# defaults file for mmartinello.active-directory-join
+# Required APT packages
+ad_join_apt_required_packages:
+  - python-pip
+  - python3-pip
+  - realmd
+  - sssd
+  - sssd-tools
+  - libnss-sss
+  - libpam-sss
+  - adcli
+  - samba-common-bin
+  - ntpdate
+
+# Sync system date/time from Domain Controller
+ad_join_ntp_sync: true
+
+# Active Directory Domain Name
+ad_join_domain_name: example.com
+
+# Active Directory Site Name
+ad_join_site_name: Default-First-Site-Name
+
+# Fallback homedir
+ad_join_fallback_homedir: /home/%u@%d
+
+# Use Fully Qyalified Names
+ad_join_use_fully_qualified_names: true
+
+# AD Join Username and password
+ad_join_username: Administrator
+ad_join_password: set-and-encrypt-me

@@ -1,0 +1,19 @@
+[sssd]
+domains = {{ ad_join_domain_name }}
+config_file_version = 2
+services = nss, pam
+default_domain_suffix = {{ ad_join_domain_name | upper }}
+
+[domain/{{ ad_join_domain_name }}]
+ad_domain = {{ ad_join_domain_name }}
+krb5_realm = {{ ad_join_domain_name | upper }}
+realmd_tags = manages-system joined-with-adcli 
+cache_credentials = True
+id_provider = ad
+krb5_store_password_if_offline = True
+default_shell = /bin/bash
+ldap_id_mapping = True
+use_fully_qualified_names = {{ ad_join_use_fully_qualified_names }}
+fallback_homedir = {{ ad_join_fallback_homedir }}
+access_provider = ad
+ad_site = {{ ad_join_site_name }}

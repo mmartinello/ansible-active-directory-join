@@ -1,2 +1,5 @@
 ---
-# handlers file for mmartinello.active-directory-join
+- name: Restart SSSD
+  service:
+    name: sssd
+    state: restarted

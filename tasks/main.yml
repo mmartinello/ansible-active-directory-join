@@ -1,2 +1,10 @@
 ---
-# tasks file for mmartinello.active-directory-join
+# Install required packages
+- include_tasks: install.yml
+
+# Syncronize system date/time if enabled
+- include_tasks: ntp.yml
+  when: ad_join_ntp_sync
+
+# Join Active Directory
+- include_tasks: join.yml

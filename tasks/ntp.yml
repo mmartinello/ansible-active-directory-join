@@ -1,0 +1,25 @@
+---
+- name: Check if NTPd service exist
+  shell: service ntpd status 
+  register: ntpd_service_status
+  failed_when: not(ntpd_service_status.rc in [0, 3, 4])
+  args:
+    warn: false
+
+- name: Ensure NTPd service is stopped
+  service:
+    name: ntpd
+    state: stopped
+    enabled: no
+  when: ntpd_service_status.rc == 0
+
+- name: Sync system date/time with AD Domain Controller
+  shell: ntpdate {{ ad_join_domain_name }}
+  register: timesync_result
+
+- name: Ensure NTPd service is started
+  service:
+    name: ntpd
+    state: started
+    enabled: no
+  when: ntpd_service_status.rc == 0
