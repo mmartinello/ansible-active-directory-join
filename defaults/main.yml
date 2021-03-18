@@ -30,3 +30,6 @@ ad_join_use_fully_qualified_names: true
 # AD Join Username and password
 ad_join_username: Administrator
 ad_join_password: set-and-encrypt-me
+
+# Anonymous group name
+ad_join_linux_anonymous_group_name: nogroup
