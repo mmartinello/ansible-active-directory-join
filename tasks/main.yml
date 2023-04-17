@@ -1,10 +1,8 @@
 ---
-# Install required packages
-- include_tasks: install.yml
+- name: Join Active Directory using SSSD
+  ansible.builtin.import_tasks: sssd/main.yml
+  when: ad_join_method == 'sssd'
 
-# Syncronize system date/time if enabled
-- include_tasks: ntp.yml
-  when: ad_join_ntp_sync
-
-# Join Active Directory
-- include_tasks: join.yml
+- name: Join Active Directory using Winbind
+  ansible.builtin.import_tasks: winbind/main.yml
+  when: ad_join_method == 'winbind'

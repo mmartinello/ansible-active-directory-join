@@ -1,0 +1,10 @@
+---
+- name: Install required packages
+  ansible.builtin.include_tasks: install.yml
+
+- name: Syncronize system date/time if enabled
+  ansible.builtin.include_tasks: ntp.yml
+  when: ad_join_ntp_sync
+
+- name: Join Active Directory
+  ansible.builtin.include_tasks: join.yml

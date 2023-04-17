@@ -1,2 +1,16 @@
 ---
-# vars file for mmartinello.active-directory-join
+# Required APT packages for SSSD method
+ad_join_sssd_apt_required_packages:
+  - python-pip
+  - python3-pip
+  - realmd
+  - sssd
+  - sssd-tools
+  - libnss-sss
+  - libpam-sss
+  - adcli
+  - samba-common-bin
+  - ntpdate
+
+# Required APT packages for winbind method
+ad_join_winbind_apt_required_packages:

@@ -1,9 +1,9 @@
 ---
 - name: Install required packages
-  apt:
+  ansible.builtin.apt:
     name: "{{ ad_join_apt_required_packages }}"
 
 - name: Install pexpect Python module
-  pip:
+  ansible.builtin.pip:
     name: pexpect
     state: present

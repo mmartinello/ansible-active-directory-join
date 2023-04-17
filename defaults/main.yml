@@ -1,16 +1,6 @@
 ---
-# Required APT packages
-ad_join_apt_required_packages:
-  - python-pip
-  - python3-pip
-  - realmd
-  - sssd
-  - sssd-tools
-  - libnss-sss
-  - libpam-sss
-  - adcli
-  - samba-common-bin
-  - ntpdate
+# Active Directory join method (sssd | winbind)
+ad_join_method: sssd
 
 # Sync system date/time from Domain Controller
 ad_join_ntp_sync: true
